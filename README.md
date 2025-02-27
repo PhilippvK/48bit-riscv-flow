@@ -60,14 +60,13 @@ Compile target SW
 ```sh
 # ./scripts/compile_example.sh [PROG] [gcc|llvm|seal5_llvm] [ARCH] [ABI] [Release|Debug]
 # ./scripts/compile_example.sh 48bit_test seal5_llvm rv32gck ilp32d Release
-./scripts/compile_example.sh hello_world gcc rv32gck ilp32d Release
+./scripts/compile_example.sh 48bit_test llvm rv32gck ilp32d Release
 ```
 
 Run program on patched architecture ETISS
 ```sh
 # ./scripts/run_example.sh [PROG] [CPU_ARCH]
-# ./scripts/run_example.sh 48bit_test RV32IMACFDK
-./scripts/run_example.sh hello_world RV32IMACFDK
+./scripts/run_example.sh 48bit_test RV32IMACFDK
 ```
 
 ### All-in-one

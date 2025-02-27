@@ -17,8 +17,6 @@ test -d install/llvm || ./scripts/download_helper.sh install/llvm/ llvm 19.1.6_x
 ./scripts/patch_llvm.sh
 
 # ./scripts/compile_example.sh 48bit_test seal5_llvm rv32gck ilp32d Release
-# ./scripts/compile_example.sh hello_world seal5_llvm rv32gck ilp32d Release
-./scripts/compile_example.sh hello_world llvm rv32gck ilp32d Release
+./scripts/compile_example.sh 48_bit_test llvm rv32gck ilp32d Release
 
-# ./scripts/run_example.sh mnn RV32IMACFDK
-./scripts/run_example.sh hello_world RV32IMACFDK
+./scripts/run_example.sh 48bit_test RV32IMACFDK
