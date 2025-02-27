@@ -22,7 +22,7 @@ git submodule update --init --recursive
 Download toolchains
 
 ```sh
-test -d install/rv32gc_ilp32d || ./scripts/download_helper.sh install/rv32gc_ilp32d/ gnu 2024.09.03 rv32gc_zicsr_zifencei_ilp32d
+test -d install/rv32gc_ilp32d || ./scripts/download_helper.sh install/rv32gc_ilp32d/ gnu 2024.09.03 rv32gc_ilp32d
 test -d install/llvm || ./scripts/download_helper.sh install/llvm/ llvm 19.1.6_xcvmem_heuristic
 ```
 
@@ -56,14 +56,16 @@ Generate & build patched LLVM
 
 Compile target SW
 ```sh
-# ./scripts/compile_example.sh [PROG] [gcc|llvm|seal5_llvm] [ARCH] [ABI]
-./scripts/compile_example.sh mnn seal5_llvm rv32gck_zicsr_zifencei ilp32d
+# ./scripts/compile_example.sh [PROG] [gcc|llvm|seal5_llvm] [ARCH] [ABI] [Release|Debug]
+# ./scripts/compile_example.sh 48bit_test seal5_llvm rv32gck ilp32d Release
+./scripts/compile_example.sh hello_world gcc rv32gck ilp32d Release
 ```
 
 Run program on patched architecture ETISS
 ```sh
 # ./scripts/run_example.sh [PROG] [CPU_ARCH]
-./scripts/run_example.sh mnn RV32IMACFDK
+# ./scripts/run_example.sh 48bit_test RV32IMACFDK
+./scripts/run_example.sh hello_world RV32IMACFDK
 ```
 
 ### All-in-one
