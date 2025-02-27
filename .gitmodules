@@ -9,7 +9,7 @@
 	url = https://github.com/tum-ei-eda/seal5.git
 [submodule "etiss"]
 	path = etiss
-	url = https://github.com/wysiwyng/etiss.git
+	url = https://github.com/PhilippvK/etiss.git
 [submodule "etiss_riscv_examples"]
 	path = etiss_riscv_examples
 	url = https://github.com/tum-ei-eda/etiss_riscv_examples.git
