@@ -43,6 +43,8 @@ Generate and apply ETISS patches
 ./scripts/patch_etiss.sh RV32IMACFDK
 ```
 
+*Hint:* A pre-patched version of ETISS can be found here: https://github.com/PhilippvK/etiss/tree/support-riscv-48bit-enc
+
 Build patched ETISS simulator
 ```sh
 # ./scripts/setup_etiss.sh [Release|Debug]
