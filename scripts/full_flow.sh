@@ -2,7 +2,7 @@
 
 set -e
 
-test -d install/rv32gc_ilp32d || ./scripts/download_helper.sh install/rv32gc_ilp32d/ gnu 2024.09.03 rv32gc_zicsr_zifencei_ilp32d
+test -d install/rv32gc_ilp32d || ./scripts/download_helper.sh install/rv32gc_ilp32d/ gnu 2024.09.03 rv32gc_ilp32d
 
 test -d install/llvm || ./scripts/download_helper.sh install/llvm/ llvm 19.1.6_xcvmem_heuristic
 
@@ -16,6 +16,9 @@ test -d install/llvm || ./scripts/download_helper.sh install/llvm/ llvm 19.1.6_x
 
 ./scripts/patch_llvm.sh
 
-./scripts/compile_example.sh mnn seal5_llvm rv32imafdck ilp32d
+# ./scripts/compile_example.sh 48bit_test seal5_llvm rv32gck ilp32d Release
+# ./scripts/compile_example.sh hello_world seal5_llvm rv32gck ilp32d Release
+./scripts/compile_example.sh hello_world llvm rv32gck ilp32d Release
 
-./scripts/run_example.sh mnn RV32IMACFDK
+# ./scripts/run_example.sh mnn RV32IMACFDK
+./scripts/run_example.sh hello_world RV32IMACFDK
