@@ -1,0 +1,29 @@
+name: Trigger 48-bit ETISS Test Flow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - cdsl/RVK.core_desc
+      - .github/workflows/trigger.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - cdsl/RVK.core_desc
+      - .github/workflows/trigger.yml
+
+permissions:
+  contents: read
+
+jobs:
+  trigger_repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger 48-bit ETISS Test Flow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.SEAL5_ACCESS_TOKEN }}
+          repository: tum-ei-eda/seal5_etiss_test_env
+          event-type: 48bit-cdsl-event
+          client-payload: >-
+            {"triggered_run_id": "${{ github.run_id }}", "ref": "${{ github.event.pull_request.head.sha || github.sha }}", "from": "48bit-cdsl", "is_pr": "${{ github.event_name == 'pull_request' }}"}
